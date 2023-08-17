@@ -34,7 +34,6 @@ const MainView = () => {
   };
 
   const getAllJob = async () => {
-    setLoading(true);
     const data = await fetchAllJob();
     setJob(data);
     setLoading(false);
