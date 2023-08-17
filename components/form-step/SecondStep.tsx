@@ -10,7 +10,7 @@ interface Props {
 
 const SecondStep = (props: Props) => {
   const { setStepperCount, submitForm, formValue, setFormValue } = props;
-
+  
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
 
@@ -87,7 +87,7 @@ const SecondStep = (props: Props) => {
           Total Employee
         </label>
         <input
-          type="number"
+          type="text"
           value={formValue.totalEmployee}
           name="totalEmployee"
           onChange={(e) => handleChange(e)}

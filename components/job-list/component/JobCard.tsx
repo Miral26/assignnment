@@ -32,10 +32,13 @@ const JobCard = (props: Props) => {
   };
 
   const salarySection = (item: Job) => {
+    const formatter = new Intl.NumberFormat("en-GB", {
+      currency: "INR",
+    });
     if (item.salaryMinimum || item.salaryMaximum) {
       return (
         <span>
-          INR (₹) {item.salaryMinimum} - {item.salaryMaximum} / Month
+          INR (₹) {formatter.format(Number(item.salaryMinimum))} - {formatter.format(Number(item.salaryMaximum))} / Month
         </span>
       );
     }
@@ -45,7 +48,7 @@ const JobCard = (props: Props) => {
     if (item.location || item.remoteType) {
       return (
         <span>
-          {item.location} {item.remoteType}
+          {item.location} ({item.remoteType})
         </span>
       );
     }
@@ -55,7 +58,7 @@ const JobCard = (props: Props) => {
     if (item.exMinimum || item.exMaximum) {
       return (
         <span>
-          Experience ({item.exMinimum} - {item.exMaximum})
+          Experience ({item.exMinimum} - {item.exMaximum}  years)
         </span>
       );
     }
