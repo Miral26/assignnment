@@ -7,6 +7,7 @@ interface Props {
   formValue: Job;
   setFormValue: (u: Job) => void;
 }
+
 const FirstStep = (props: Props) => {
   const { setStepperCount, formValue, setFormValue } = props;
   const [error, setError] = useState<boolean>(false);

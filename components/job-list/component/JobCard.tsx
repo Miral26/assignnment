@@ -5,6 +5,7 @@ import CardButton from "./CardButton";
 import { useLoading } from "../../../context/LoaderContext";
 import { deleteJob } from "../../../services/job.services";
 import DeleteConfirmationModal from "./DeleteConfirmationModal";
+import { toast } from "react-toastify";
 
 interface Props {
   item: Job;
@@ -70,6 +71,16 @@ const JobCard = (props: Props) => {
     await deleteJob(id);
     getAllJob();
     setLoading(false);
+    toast.success("Job deleted successfully.", {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+    });
   };
 
   return (
