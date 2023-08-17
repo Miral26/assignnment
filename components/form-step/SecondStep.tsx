@@ -10,7 +10,7 @@ interface Props {
 
 const SecondStep = (props: Props) => {
   const { setStepperCount, submitForm, formValue, setFormValue } = props;
-  
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
 
@@ -38,6 +38,7 @@ const SecondStep = (props: Props) => {
             name="exMinimum"
             onChange={(e) => handleChange(e)}
             required
+            min={0}
             placeholder="Minimum"
             className="appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
           />
@@ -48,6 +49,7 @@ const SecondStep = (props: Props) => {
             name="exMaximum"
             onChange={(e) => handleChange(e)}
             required
+            min={0}
             placeholder="Maximum"
             className="appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
           />
@@ -64,6 +66,7 @@ const SecondStep = (props: Props) => {
             name="salaryMinimum"
             onChange={(e) => handleChange(e)}
             required
+            min={0}
             placeholder="Minimum"
             className="appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
           />
@@ -74,6 +77,7 @@ const SecondStep = (props: Props) => {
             name="salaryMaximum"
             onChange={(e) => handleChange(e)}
             required
+            min={0}
             placeholder="Maximum"
             className="appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none focus:shadow-outline"
           />
@@ -150,7 +154,7 @@ const SecondStep = (props: Props) => {
         <Button
           onClick={submitForm}
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-          label="Next"
+          label="Save"
         />
       </div>
     </>

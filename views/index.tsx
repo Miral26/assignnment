@@ -14,6 +14,7 @@ import JobList from "../components/job-list";
 import Loader from "../components/loader/Loader";
 import FormStepper from "../components/form-step";
 import NoJobFoundPage from "../components/no-data-found/NoJobFoundPage";
+import { CloseIconSVG, PlusIconSVG } from "../assets/svg/icon";
 
 const MainView = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
@@ -28,12 +29,15 @@ const MainView = () => {
   };
 
   const closeModal = () => {
+    setStepperCount(1);
     setIsModalOpen(false);
   };
 
   const getAllJob = async () => {
+    setLoading(true);
     const data = await fetchAllJob();
     setJob(data);
+    setLoading(false);
   };
 
   const submitForm = async () => {
@@ -57,31 +61,37 @@ const MainView = () => {
   };
 
   useEffect(() => {
-    setLoading(true);
     // Fetching all the Jobs
     getAllJob();
-    setLoading(false);
   }, []);
 
   return (
-    <>
-      <div className="mt-8 ml-16 px-4">
-        <Button
+    <div className="bg-[#ebebeb] min-h-[100vh]">
+      <div className=" mr-16 px-6 flex justify-end">
+        <button
           onClick={openModal}
-          className="bg-[#1597e4] text-white font-bold  py-2 px-4 rounded ml-4"
-          label="Create Job"
-        />
+          className="mt-8 bg-[#1597e4] text-white font-bold  py-2 px-4 rounded ml-4 flex w-[400px] items-center"
+        >
+          <PlusIconSVG />
+          Create Job
+        </button>
       </div>
 
       {isModalOpen && (
-        <div
-          onClick={closeModal}
-          className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-10"
-        >
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-10">
           <div
             onClick={(e) => e.stopPropagation()}
             className="w-[577px] h-[564] bg-white p-8 rounded shadow-md "
           >
+            <div className="justify-end flex mb-1">
+              <span
+                onClick={closeModal}
+                className="w-8 h-8 p-1 cursor-pointer sm:mb-0 mb-4 inline-flex items-center justify-center rounded bg-red-100 text-red-500 flex-shrink-0"
+              >
+                <CloseIconSVG />
+              </span>
+            </div>
+
             <div className="flex justify-between mb-6">
               <span className="text-gray-700  text-2xl">Create a job</span>{" "}
               <span className="text-gray-700 font-bold">
@@ -103,14 +113,13 @@ const MainView = () => {
         <Loader />
       ) : (
         <>
-          {job.length > 0 ? (
+          {job.length > 0 && (
             <JobList job={job} getAllJob={getAllJob} onEditJob={onEditJob} />
-          ) : (
-            <NoJobFoundPage />
           )}
+          {!job.length && !loading && <NoJobFoundPage />}
         </>
       )}
-    </>
+    </div>
   );
 };
 

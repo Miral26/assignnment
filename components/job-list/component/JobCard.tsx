@@ -38,7 +38,8 @@ const JobCard = (props: Props) => {
     if (item.salaryMinimum || item.salaryMaximum) {
       return (
         <span>
-          INR (₹) {formatter.format(Number(item.salaryMinimum))} - {formatter.format(Number(item.salaryMaximum))} / Month
+          INR (₹) {formatter.format(Number(item.salaryMinimum))} -{" "}
+          {formatter.format(Number(item.salaryMaximum))} / Month
         </span>
       );
     }
@@ -58,7 +59,7 @@ const JobCard = (props: Props) => {
     if (item.exMinimum || item.exMaximum) {
       return (
         <span>
-          Experience ({item.exMinimum} - {item.exMaximum}  years)
+          Experience ({item.exMinimum} - {item.exMaximum} years)
         </span>
       );
     }
@@ -72,9 +73,7 @@ const JobCard = (props: Props) => {
   };
 
   return (
-    <div
-      className="  w-[830px] min-h-[320px] ml-16 mb-16 flex rounded-lg  border-opacity-50 py-4 px-6 sm:flex-row flex-col bg-white border-solid border-2 border-slate-100"
-    >
+    <div className="w-full min-h-[320px] flex rounded-lg  border-opacity-50 py-4 px-6 sm:flex-row flex-col bg-white border-solid border-2 border-[#e6e6e6]">
       <div className="w-16 h-16 sm:mr-2 sm:mb-0 mb-4 inline-flex items-center justify-center rounded bg-black text-[#d86161]  flex-shrink-0">
         <ImageSVG />
       </div>
