@@ -5,7 +5,7 @@ const CardButton = ({ applyType }: { applyType: string }) => {
   if (applyType === "Quick apply") {
     return (
       <Button
-        className="bg-[#1597e4] text-white font-bold py-2 px-4 rounded"
+        className="bg-[#1597e4] text-white font-bold py-2 px-4 absolute bottom-0 rounded"
         label="Apply Now"
       />
     );
@@ -13,7 +13,7 @@ const CardButton = ({ applyType }: { applyType: string }) => {
   if (applyType === "External apply") {
     return (
       <Button
-        className="bg-transparent bg-[#1597e4] font-semibold  py-2 px-4 border border-[#1597e4] text-[#1597e4]  rounded"
+        className="bg-transparent bg-[#1597e4] font-semibold  py-2 px-4 border border-[#1597e4] text-[#1597e4] absolute bottom-0 rounded"
         label="External Apply"
       />
     );

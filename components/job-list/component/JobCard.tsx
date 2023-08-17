@@ -70,7 +70,6 @@ const JobCard = (props: Props) => {
 
   return (
     <div
-      key={item.id}
       className="  w-[830px] min-h-[320px] ml-16 mb-16 flex rounded-lg  border-opacity-50 py-4 px-6 sm:flex-row flex-col bg-white border-solid border-2 border-slate-100"
     >
       <div className="w-16 h-16 sm:mr-2 sm:mb-0 mb-4 inline-flex items-center justify-center rounded bg-black text-[#d86161]  flex-shrink-0">
@@ -92,7 +91,6 @@ const JobCard = (props: Props) => {
             </div>
             <div
               className="w-8 h-8 p-1 cursor-pointer sm:mr-2 sm:mb-0 mb-4 inline-flex items-center justify-center rounded bg-red-100 text-red-500 flex-shrink-0"
-              // onClick={() => item.id && deleteJobCard(item.id)}
               onClick={handleDeleteClick}
             >
               <DeleteIconSVG />

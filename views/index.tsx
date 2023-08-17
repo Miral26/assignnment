@@ -65,7 +65,7 @@ const MainView = () => {
 
   return (
     <>
-      <div className="mt-8 ml-16">
+      <div className="mt-8 ml-16 px-4">
         <Button
           onClick={openModal}
           className="bg-[#1597e4] text-white font-bold  py-2 px-4 rounded ml-4"
@@ -80,7 +80,7 @@ const MainView = () => {
         >
           <div
             onClick={(e) => e.stopPropagation()}
-            className="w-[577px] h-auto bg-white p-8 rounded shadow-md relative"
+            className="w-[577px] h-[564] bg-white p-8 rounded shadow-md "
           >
             <div className="flex justify-between mb-6">
               <span className="text-gray-700  text-2xl">Create a job</span>{" "}

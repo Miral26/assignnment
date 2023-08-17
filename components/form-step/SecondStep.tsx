@@ -97,14 +97,14 @@ const SecondStep = (props: Props) => {
         />
       </div>
 
-      <div className="mb-6">
+      <div>
         <label
           htmlFor="applyType"
           className="block text-gray-700 font-bold mb-1"
         >
           Apply type
         </label>
-        <div className="flex items-center mb-4 gap-6">
+        <div className="flex items-center gap-6">
           <div className="flex items-center">
             <input
               checked={formValue.applyType === "Quick apply"}
@@ -140,7 +140,7 @@ const SecondStep = (props: Props) => {
         </div>
       </div>
 
-      <div className="flex items-center justify-between absolute bottom-[32px] w-[89%]">
+      <div className="flex items-center justify-between mt-[96px]">
         <Button
           onClick={() => setStepperCount(1)}
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
