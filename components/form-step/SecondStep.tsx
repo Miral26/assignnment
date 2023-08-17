@@ -6,10 +6,12 @@ interface Props {
   submitForm: () => void;
   formValue: Job;
   setFormValue: (u: Job) => void;
+  closeModal: () => void;
 }
 
 const SecondStep = (props: Props) => {
-  const { setStepperCount, submitForm, formValue, setFormValue } = props;
+  const { setStepperCount, submitForm, formValue, setFormValue, closeModal } =
+    props;
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -150,12 +152,18 @@ const SecondStep = (props: Props) => {
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
           label="Previous"
         />
-
-        <Button
-          onClick={submitForm}
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-          label="Save"
-        />
+        <div className="gap-x-1">
+          <Button
+            className="bg-transparent hover:bg-[#D86161] text-[#D86161] mr-2 font-semibold hover:text-white py-2 px-4 border border-[#D86161] hover:border-transparent rounded"
+            label="Cancel"
+            onClick={closeModal}
+          />
+          <Button
+            onClick={submitForm}
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            label="Save"
+          />
+        </div>
       </div>
     </>
   );

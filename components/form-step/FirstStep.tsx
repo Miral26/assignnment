@@ -6,10 +6,11 @@ interface Props {
   setStepperCount: (x: number) => void;
   formValue: Job;
   setFormValue: (u: Job) => void;
+  closeModal: () => void;
 }
 
 const FirstStep = (props: Props) => {
-  const { setStepperCount, formValue, setFormValue } = props;
+  const { setStepperCount, formValue, setFormValue, closeModal } = props;
   const [error, setError] = useState<boolean>(false);
 
   const handleStepChange = () => {
@@ -121,11 +122,19 @@ const FirstStep = (props: Props) => {
         </div>
       </div>
       <div className="flex items-center justify-end mt-[96px]">
-        <Button
-          onClick={handleStepChange}
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-          label="Next"
-        />
+        <div className="gap-x-1">
+          <Button
+            className="bg-transparent hover:bg-[#D86161] text-[#D86161] mr-2 font-semibold hover:text-white py-2 px-4 border border-[#D86161] hover:border-transparent rounded"
+            label="Cancel"
+            onClick={closeModal}
+          />
+
+          <Button
+            onClick={handleStepChange}
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            label="Next"
+          />
+        </div>
       </div>
     </>
   );

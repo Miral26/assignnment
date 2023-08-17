@@ -29,6 +29,7 @@ const MainView = () => {
   };
 
   const closeModal = () => {
+    setJobFormValue(initialState);
     setStepperCount(1);
     setIsModalOpen(false);
   };

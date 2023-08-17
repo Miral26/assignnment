@@ -19,7 +19,7 @@ const Header = ({ openModal }: Props) => {
             height={100}
           />
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-            Flowbite
+            Miral G
           </span>
         </div>
         <div className="flex md:order-2">
