@@ -52,17 +52,27 @@ const MainView = () => {
     setJobFormValue(initialState);
     getAllJob();
     setLoading(false);
-
-    toast.success("Job created successfully.", {
-      position: "top-center",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
-    });
+    jobFormValue.id
+      ? toast.success("Job updated successfully.", {
+          position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        })
+      : toast.success("Job created successfully.", {
+          position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
   };
 
   const onEditJob = async (id: string) => {
